@@ -1,3 +1,4 @@
+import 'package:eventapplication/server/auth.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -48,29 +49,35 @@ class _SignupState extends State<Signup> {
             ),
             SizedBox(height: 20),
 
-            Container(
-              width: MediaQuery.sizeOf(context).width * 0.8,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.orangeAccent[200],
-                border: Border.all(width: 2),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              padding: EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/google_img.png", width: 30, height: 30),
-                  SizedBox(width: 20),
-                  Text(
-                    "Sign in with Google",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
+            GestureDetector(
+              onTap: ()
+              {
+                AuthMethods().signInWithGoogle(context);
+              },
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.8,
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.orangeAccent[200],
+                  border: Border.all(width: 2),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                padding: EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/google_img.png", width: 30, height: 30),
+                    SizedBox(width: 20),
+                    Text(
+                      "Sign in with Google",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
